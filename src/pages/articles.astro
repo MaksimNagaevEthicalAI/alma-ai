@@ -1,6 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+
+const articles = await getCollection("articles", ({ data }) => !data.draft);
+
+// новые сверху
+articles.sort(
+  (a, b) =>
+    b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
 ---
 
 <Layout title="Articles | ALMA AI">
@@ -9,27 +18,78 @@ import Header from "../components/Header.astro";
   <main class="container page">
     <h1>Articles</h1>
 
-    <p>
+    <p class="intro">
       Essays and practical insights about relationships,
       compatibility, emotional dynamics, and ethical AI.
     </p>
+
+    <div class="articles">
+      {articles.map((article) => (
+        <a class="card" href={`/articles/${article.id}/`}>
+          <h2>{article.data.title}</h2>
+
+          <p>{article.data.description}</p>
+
+          <span>
+            {article.data.pubDate.toLocaleDateString("en-US")}
+          </span>
+        </a>
+      ))}
+    </div>
   </main>
 </Layout>
 
 <style>
 .page{
-    padding:100px 20px;
+  padding:100px 20px;
 }
 
 .page h1{
-    font-size:54px;
-    margin-bottom:25px;
+  font-size:54px;
+  margin-bottom:25px;
 }
 
-.page p{
-    font-size:22px;
-    max-width:900px;
-    color:var(--muted);
-    line-height:1.8;
+.intro{
+  font-size:22px;
+  max-width:900px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:60px;
+}
+
+.articles{
+  display:grid;
+  gap:28px;
+}
+
+.card{
+  display:block;
+  padding:28px;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  text-decoration:none;
+  color:inherit;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h2{
+  margin-bottom:12px;
+  font-size:30px;
+}
+
+.card p{
+  color:#666;
+  margin-bottom:16px;
+  line-height:1.7;
+}
+
+.card span{
+  font-size:14px;
+  color:#888;
 }
 </style>
