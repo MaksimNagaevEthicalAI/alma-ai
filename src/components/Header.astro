@@ -1,0 +1,59 @@
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">ALMA AI</a>
+
+    <nav>
+      <a href="/research">Research</a>
+      <a href="/publications">Publications</a>
+      <a href="/articles">Articles</a>
+      <a href="/about">About</a>
+      <a
+        href="https://github.com/MaksimNagaevEthicalAI"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+.header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 18px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--muted);
+  transition: .2s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+</style>

@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Articles | ALMA AI">
+  <Header />
+
+  <main class="container page">
+    <h1>Articles</h1>
+
+    <p>
+      Essays and practical insights about relationships,
+      compatibility, emotional dynamics, and ethical AI.
+    </p>
+  </main>
+</Layout>
+
+<style>
+.page{
+    padding:100px 20px;
+}
+
+.page h1{
+    font-size:54px;
+    margin-bottom:25px;
+}
+
+.page p{
+    font-size:22px;
+    max-width:900px;
+    color:var(--muted);
+    line-height:1.8;
+}
+</style>
