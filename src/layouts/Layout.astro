@@ -4,68 +4,53 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-
 interface Props {
   title?: string;
 }
 
-
 const { title = "ALMA AI" } = Astro.props;
-
 ---
 
-
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
 
-    <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
 
-    <meta 
-      name="viewport" 
-      content="width=device-width, initial-scale=1" 
-    />
+  <title>{title}</title>
 
+  <!-- ALMA AI favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/icon.png"
+  />
 
-    <title>{title}</title>
+  <link
+    rel="apple-touch-icon"
+    href="/icon.png"
+  />
 
-
-    <link 
-      rel="icon" 
-      type="image/png" 
-      href="/icon.png" 
-    />
-
-    <link 
-      rel="apple-touch-icon" 
-      href="/icon.png" 
-    />
-
-
-    <meta
-      name="description"
-      content="ALMA AI is an ethical AI research initiative exploring long-term relationship compatibility through artificial intelligence and psychology."
-    />
-
+  <meta
+    name="description"
+    content="ALMA AI is an ethical AI research initiative exploring long-term relationship compatibility through artificial intelligence and psychology."
+  />
 
 </head>
 
-
 <body>
 
+  <Header />
 
-    <Header />
+  <slot />
 
-
-    <slot />
-
-
-    <Footer />
-
+  <Footer />
 
 </body>
-
 
 </html>
