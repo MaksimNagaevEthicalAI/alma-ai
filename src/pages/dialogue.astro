@@ -1,22 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Header from "../components/Header.astro";
-
 import DialogueWizard from "../components/dialogue/DialogueWizard";
 ---
 
 <Layout title="Start Dialogue | ALMA AI">
-
-    <Header />
-
 
     <main class="dialogue">
 
         <DialogueWizard client:load />
 
     </main>
-
 
 </Layout>
 
