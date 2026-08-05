@@ -1,36 +1,586 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 ---
 
 <Layout title="About | ALMA AI">
-  <Header />
 
-  <main class="container page">
-    <h1>About ALMA AI</h1>
 
-    <p>
-      ALMA AI is an independent research initiative founded by
-      Maksim Nagaev to study ethical artificial intelligence,
-      psychology, and long-term relationship compatibility.
-    </p>
-  </main>
-</Layout>
+<main class="about">
+
+
+<section class="hero">
+
+<h1>
+Beyond Answers.<br/>
+Towards Understanding.
+</h1>
+
+
+<p class="lead">
+ALMA AI is an independent research initiative exploring a new generation
+of artificial intelligence designed to understand people, relationships,
+and human decision patterns.
+</p>
+
+
+<p>
+The project began in 2025 from a simple question:
+why do intelligent people still struggle to understand themselves
+and each other?
+</p>
+
+</section>
+
+
+
+
+
+<section>
+
+<h2>
+Beyond Large Language Models
+</h2>
+
+
+<p>
+Modern AI systems based on Large Language Models (LLMs) are powerful tools
+for generating information, solving problems, and assisting human tasks.
+</p>
+
+
+<p>
+However, most AI interactions are based on individual conversations.
+They respond to prompts, but they do not create a continuously developing
+understanding of a person's identity, values, and behavioral patterns.
+</p>
+
+
+
+<div class="comparison">
+
+
+<div>
+
+<h3>
+Traditional AI
+</h3>
+
+
+<p>
+Question → Answer
+</p>
+
+<p>
+Context is temporary.
+</p>
+
+<p>
+Focus:
+information generation.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3>
+ALMA Vision
+</h3>
+
+
+<p>
+Interaction → Observation → Understanding
+</p>
+
+
+<p>
+Context becomes structured knowledge.
+</p>
+
+<p>
+Focus:
+human understanding.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<h2>
+ALMA is not another chatbot
+</h2>
+
+
+<p>
+ALMA is not designed to simply generate more answers.
+</p>
+
+
+<p>
+The goal is to explore a persistent cognitive model —
+an AI system that can develop a structured understanding of a person
+through meaningful interactions over time.
+</p>
+
+
+<p>
+Instead of asking:
+</p>
+
+
+<blockquote>
+"What answer should AI generate?"
+</blockquote>
+
+
+<p>
+ALMA asks:
+</p>
+
+
+<blockquote>
+"What does this person value, how do they think,
+and what patterns influence their decisions?"
+</blockquote>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<h2>
+How ALMA Thinks
+</h2>
+
+
+<div class="architecture">
+
+
+<div>
+Human Interaction
+
+<span>
+Experiences, conversations, decisions
+</span>
+
+</div>
+
+
+<div>
+Observations
+
+<span>
+Extracting meaningful patterns
+</span>
+
+</div>
+
+
+<div>
+Structured Memory
+
+<span>
+Organized understanding over time
+</span>
+
+</div>
+
+
+<div>
+Insights
+
+<span>
+Helping people understand themselves and others
+</span>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+<h2>
+Understanding Human Compatibility
+</h2>
+
+
+<p>
+The first research direction of ALMA focuses on long-term compatibility:
+understanding why some relationships become stronger over time,
+while others fail despite attraction and emotional connection.
+</p>
+
+
+<p>
+Future systems based on these principles may help people understand
+potential partners, friendships, and important human connections
+through deeper psychological patterns rather than superficial matching.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<h2>
+Future Possibilities
+</h2>
+
+
+<ul>
+
+<li>
+Finding partners based on deeper psychological compatibility.
+</li>
+
+<li>
+Discovering friendships based on shared values and perspectives.
+</li>
+
+<li>
+Improving professional collaboration and team formation.
+</li>
+
+<li>
+Creating personalized AI systems for self-reflection and decision making.
+</li>
+
+<li>
+Building new ways for humans to understand themselves and each other.
+</li>
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="closing">
+
+
+<h2>
+The ALMA Principle
+</h2>
+
+
+<p>
+The future of artificial intelligence should not only be about generating
+more answers.
+</p>
+
+
+<p>
+It should be about creating better understanding between people.
+</p>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
 
 <style>
-.page{
-    padding:100px 20px;
+
+
+.about{
+
+width:100%;
+
+max-width:1000px;
+
+margin:0 auto;
+
+padding:100px 20px;
+
+overflow:hidden;
+
 }
 
-.page h1{
-    font-size:54px;
-    margin-bottom:25px;
+
+.about section{
+
+width:100%;
+
 }
 
-.page p{
-    font-size:22px;
-    max-width:900px;
-    color:var(--muted);
-    line-height:1.8;
+
+
+.hero{
+
+margin-bottom:100px;
+
 }
+
+
+
+h1{
+
+font-size:64px;
+
+line-height:1.05;
+
+letter-spacing:-2px;
+
+margin-bottom:40px;
+
+}
+
+
+
+.lead{
+
+font-size:28px;
+
+line-height:1.6;
+
+}
+
+
+
+h2{
+
+font-size:42px;
+
+margin-top:100px;
+
+margin-bottom:35px;
+
+}
+
+
+
+p{
+
+font-size:21px;
+
+line-height:1.85;
+
+color:var(--muted);
+
+max-width:100%;
+
+}
+
+
+
+.comparison{
+
+display:grid;
+
+grid-template-columns:repeat(2,minmax(0,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+
+
+
+.comparison div{
+
+padding:35px;
+
+border:1px solid #e5e7eb;
+
+border-radius:20px;
+
+min-width:0;
+
+}
+
+
+
+h3{
+
+font-size:26px;
+
+}
+
+
+
+blockquote{
+
+font-size:28px;
+
+font-weight:600;
+
+border-left:4px solid #2563eb;
+
+padding-left:25px;
+
+color:#111827;
+
+max-width:100%;
+
+overflow-wrap:anywhere;
+
+}
+
+
+
+.architecture{
+
+display:grid;
+
+grid-template-columns:repeat(4,minmax(0,1fr));
+
+gap:20px;
+
+}
+
+
+
+.architecture div{
+
+padding:30px;
+
+background:#f8fafc;
+
+border-radius:20px;
+
+font-size:22px;
+
+font-weight:700;
+
+min-width:0;
+
+}
+
+
+
+.architecture span{
+
+display:block;
+
+font-size:16px;
+
+font-weight:400;
+
+margin-top:15px;
+
+color:#64748b;
+
+}
+
+
+
+ul{
+
+padding-left:30px;
+
+}
+
+
+
+li{
+
+font-size:21px;
+
+line-height:2;
+
+color:var(--muted);
+
+}
+
+
+
+.closing{
+
+padding-bottom:80px;
+
+}
+
+
+
+@media(max-width:800px){
+
+
+h1{
+
+font-size:42px;
+
+}
+
+
+
+h2{
+
+font-size:32px;
+
+}
+
+
+
+.comparison,
+.architecture{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.lead{
+
+font-size:22px;
+
+}
+
+
+}
+
+
+
 </style>
+
+
+</Layout>

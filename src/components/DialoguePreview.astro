@@ -1,0 +1,170 @@
+<section class="dialogue">
+
+  <div class="container">
+
+    <div class="text">
+
+      <span class="eyebrow">
+        Experience ALMA
+      </span>
+
+      <h2>
+        Every relationship starts
+        with a conversation.
+      </h2>
+
+      <p>
+        ALMA doesn't ask you to fill out a personality test.
+        It guides you through a structured dialogue that helps
+        reveal emotional patterns, values, expectations and
+        long-term compatibility.
+      </p>
+
+      <a href="/dialogue" class="button">
+        Try the Prototype →
+      </a>
+
+    </div>
+
+    <div class="phone">
+
+      <div class="window">
+
+        <div class="top">
+          ALMA Conversation
+        </div>
+
+        <h3>
+          What would you like to understand today?
+        </h3>
+
+        <button>Myself</button>
+        <button>My Partner</button>
+        <button>Someone I Met</button>
+        <button>Our Relationship</button>
+
+        <div class="continue">
+          Continue →
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.dialogue{
+padding:120px 24px;
+background:white;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 420px;
+gap:90px;
+align-items:center;
+}
+
+.eyebrow{
+display:inline-block;
+padding:8px 16px;
+border-radius:999px;
+background:#eef4ff;
+color:#2563eb;
+font-size:14px;
+font-weight:600;
+margin-bottom:22px;
+}
+
+.text h2{
+font-size:52px;
+line-height:1.1;
+margin-bottom:28px;
+}
+
+.text p{
+font-size:21px;
+line-height:1.9;
+color:#666;
+max-width:620px;
+margin-bottom:36px;
+}
+
+.button{
+display:inline-block;
+padding:18px 32px;
+background:#111827;
+color:white;
+text-decoration:none;
+border-radius:14px;
+font-weight:600;
+transition:.25s;
+}
+
+.button:hover{
+transform:translateY(-2px);
+}
+
+.window{
+background:white;
+border:1px solid #e5e7eb;
+border-radius:22px;
+padding:28px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.top{
+font-size:13px;
+color:#6b7280;
+margin-bottom:22px;
+}
+
+.window h3{
+font-size:24px;
+margin-bottom:26px;
+line-height:1.4;
+}
+
+.window button{
+display:block;
+width:100%;
+padding:16px;
+margin-bottom:14px;
+border:none;
+border-radius:12px;
+background:#f3f4f6;
+font-size:16px;
+cursor:pointer;
+transition:.2s;
+}
+
+.window button:hover{
+background:#e5e7eb;
+}
+
+.continue{
+margin-top:24px;
+font-weight:600;
+color:#2563eb;
+}
+
+@media(max-width:900px){
+
+.container{
+grid-template-columns:1fr;
+gap:60px;
+}
+
+.text h2{
+font-size:40px;
+}
+
+}
+
+</style>

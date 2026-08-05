@@ -1,22 +1,36 @@
 <section class="about">
 
-    <div class="container">
+  <div class="container">
 
-        <h2>About ALMA AI</h2>
+    <div class="left">
 
-        <p>
-            ALMA AI is an independent research initiative exploring how
-            artificial intelligence, psychology, and structured dialogue
-            can improve long-term relationship compatibility.
-        </p>
+      <span class="badge">
+        Why ALMA
+      </span>
 
-        <p>
-            Rather than predicting whether a relationship will succeed,
-            ALMA AI focuses on helping people understand compatibility
-            before major life decisions.
-        </p>
+      <h2>
+        Relationships are too important
+        to rely on intuition alone.
+      </h2>
 
     </div>
+
+    <div class="right">
+
+      <p>
+        ALMA AI helps people understand relationship dynamics through
+        psychology, structured dialogue and transparent artificial intelligence.
+      </p>
+
+      <p>
+        Instead of predicting whether two people should stay together,
+        ALMA helps them understand themselves, understand each other,
+        and make better long-term decisions.
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -24,9 +38,81 @@
 
 .about{
 
-padding:100px 20px;
+    padding:160px 24px;
 
-background:white;
+    background:white;
+
+}
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+.about h2{
+
+    font-size:60px;
+
+    line-height:1.08;
+
+    letter-spacing:-2px;
+
+}
+
+.right p{
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#666;
+
+    margin-bottom:28px;
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+gap:40px;
+
+}
+
+.about{
+
+padding:90px 24px;
 
 }
 
@@ -34,21 +120,13 @@ background:white;
 
 font-size:42px;
 
-margin-bottom:30px;
-
 }
 
-.about p{
+.right p{
 
-max-width:850px;
+font-size:19px;
 
-font-size:22px;
-
-line-height:1.9;
-
-margin-bottom:24px;
-
-color:var(--muted);
+}
 
 }
 

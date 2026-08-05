@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Header from "../components/Header.astro";
+
+import DialogueWizard from "../components/dialogue/DialogueWizard";
+---
+
+<Layout title="Start Dialogue | ALMA AI">
+
+    <Header />
+
+
+    <main class="dialogue">
+
+        <DialogueWizard client:load />
+
+    </main>
+
+
+</Layout>
+
+
+<style>
+
+.dialogue{
+
+    min-height:calc(100vh - 90px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px 24px;
+
+    background:#f8fafc;
+
+}
+
+</style>

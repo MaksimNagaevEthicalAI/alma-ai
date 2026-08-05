@@ -1,0 +1,206 @@
+<section class="step">
+
+    <span class="step-number">
+        Step 1 of 7
+    </span>
+
+    <h2>
+        What brings you here today?
+    </h2>
+
+    <p>
+        Before we begin, ALMA needs a little context.
+        There are no right or wrong answers.
+        The goal is understanding, not judgment.
+    </p>
+
+    <div class="choices">
+
+        <button>
+            🧠 I want to understand myself.
+        </button>
+
+        <button>
+            ❤️ I want to understand another person.
+        </button>
+
+        <button>
+            🤝 I want to understand our relationship.
+        </button>
+
+        <button>
+            🌱 I'm simply exploring.
+        </button>
+
+    </div>
+
+    <div class="actions">
+
+        <button class="back">
+            ← Back
+        </button>
+
+        <button class="next">
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+<style>
+
+.step{
+
+    width:100%;
+
+}
+
+.step-number{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+.step h2{
+
+    font-size:42px;
+
+    color:#111827;
+
+    margin-bottom:18px;
+
+}
+
+.step p{
+
+    max-width:600px;
+
+    margin:0 auto 40px;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#6b7280;
+
+}
+
+.choices{
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+.choices button{
+
+    padding:22px;
+
+    border-radius:16px;
+
+    border:1px solid #dbe3ea;
+
+    background:white;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.choices button:hover{
+
+    border-color:#2563eb;
+
+    background:#f8fbff;
+
+}
+
+.actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:42px;
+
+}
+
+.back{
+
+    padding:16px 30px;
+
+    border-radius:14px;
+
+    border:1px solid #dbe3ea;
+
+    background:white;
+
+    cursor:pointer;
+
+}
+
+.next{
+
+    padding:16px 32px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+@media(max-width:700px){
+
+.step h2{
+
+    font-size:32px;
+
+}
+
+.step p{
+
+    font-size:18px;
+
+}
+
+.actions{
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.back,
+.next{
+
+    width:100%;
+
+}
+
+}
+
+</style>

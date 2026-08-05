@@ -1,53 +1,96 @@
 <section class="research">
 
-<div class="container">
+  <div class="container">
 
-<h2>Research Areas</h2>
+    <span class="eyebrow">
+      Research
+    </span>
 
-<div class="grid">
+    <h2>
+      Building a New Science of
+      Relationship Understanding
+    </h2>
 
-<div class="card">
+    <p class="intro">
+      ALMA AI combines psychology, structured dialogue,
+      and explainable artificial intelligence to better
+      understand long-term relationships.
+    </p>
 
-<h3>🧠 Compatibility Modeling</h3>
+    <div class="grid">
 
-<p>
+      <article class="card">
 
-Researching psychological compatibility
-beyond traditional personality tests.
+        <div class="icon">🧠</div>
 
-</p>
+        <h3>Human Psychology</h3>
 
-</div>
+        <p>
+          Studying emotional patterns,
+          attachment,
+          values,
+          expectations,
+          and decision-making.
+        </p>
 
-<div class="card">
+      </article>
 
-<h3>💬 Dialogue Intelligence</h3>
+      <article class="card">
 
-<p>
+        <div class="icon">💬</div>
 
-Structured conversations that reveal
-hidden relationship dynamics.
+        <h3>Dialogue Intelligence</h3>
 
-</p>
+        <p>
+          Conversations reveal more than questionnaires.
+          ALMA uses structured dialogue to uncover
+          relationship dynamics.
+        </p>
 
-</div>
+      </article>
 
-<div class="card">
+      <article class="card">
 
-<h3>⚖ Ethical AI</h3>
+        <div class="icon">⚖️</div>
 
-<p>
+        <h3>Long-Term Compatibility</h3>
 
-Transparent reasoning instead of
-black-box predictions.
+        <p>
+          Beyond attraction.
+          Exploring habits,
+          lifestyle,
+          conflict,
+          communication,
+          and future expectations.
+        </p>
 
-</p>
+      </article>
 
-</div>
+      <article class="card">
 
-</div>
+        <div class="icon">🤖</div>
 
-</div>
+        <h3>Explainable AI</h3>
+
+        <p>
+          Every conclusion should be transparent.
+          AI should explain its reasoning,
+          not hide it behind scores.
+        </p>
+
+      </article>
+
+    </div>
+
+    <div class="bottom">
+
+      <a href="/research">
+        Explore the Research →
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -55,57 +98,173 @@ black-box predictions.
 
 .research{
 
-padding:100px 20px;
+    padding:140px 20px;
 
-background:#f8fafc;
+    background:white;
+
+}
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.eyebrow{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+
+}
+
+.research h2{
+
+    font-size:56px;
+
+    line-height:1.15;
+
+    max-width:850px;
+
+    margin-bottom:30px;
+
+    letter-spacing:-2px;
+
+}
+
+.intro{
+
+    max-width:850px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#6b7280;
+
+    margin-bottom:70px;
 
 }
 
 .grid{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(2,1fr);
 
-gap:30px;
-
-margin-top:50px;
+    gap:28px;
 
 }
 
 .card{
 
-background:white;
+    background:#f8fafc;
 
-padding:34px;
+    border:1px solid #e5e7eb;
 
-border-radius:18px;
+    border-radius:20px;
 
-box-shadow:0 8px 24px rgba(0,0,0,.05);
+    padding:34px;
 
-transition:.25s;
+    transition:.25s;
 
 }
 
 .card:hover{
 
-transform:translateY(-5px);
+    transform:translateY(-4px);
+
+    box-shadow:0 16px 40px rgba(0,0,0,.08);
+
+}
+
+.icon{
+
+    font-size:40px;
+
+    margin-bottom:18px;
 
 }
 
 .card h3{
 
-margin-bottom:18px;
+    font-size:28px;
 
-font-size:24px;
+    margin-bottom:18px;
 
 }
 
 .card p{
 
-line-height:1.8;
+    font-size:18px;
 
-color:var(--muted);
+    line-height:1.8;
+
+    color:#6b7280;
+
+}
+
+.bottom{
+
+    margin-top:60px;
+
+}
+
+.bottom a{
+
+    font-size:20px;
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-weight:600;
+
+}
+
+.bottom a:hover{
+
+    color:#2563eb;
+
+}
+
+@media(max-width:900px){
+
+.research{
+
+    padding:90px 20px;
+
+}
+
+.research h2{
+
+    font-size:40px;
+
+}
+
+.intro{
+
+    font-size:19px;
+
+}
+
+.grid{
+
+    grid-template-columns:1fr;
+
+}
 
 }
 
