@@ -59,37 +59,31 @@ const articles = [
 
 <Layout title="Articles | ALMA AI">
 
-<section class="max-w-4xl mx-auto px-6 py-20">
+<section class="articles">
 
-  <h1 class="text-5xl font-bold mb-14">
-    Selected Essays
-  </h1>
+  <div class="articles-container">
 
-  <div>
+    <h1>Selected Essays</h1>
 
     {
       articles.map((article) => (
 
-        <article class="py-8">
+        <a
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="article"
+        >
 
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex items-center justify-between gap-16"
-          >
+          <span class="title">
+            {article.title}
+          </span>
 
-            <span class="text-2xl font-semibold leading-snug max-w-3xl transition-colors group-hover:text-gray-600">
-              {article.title}
-            </span>
+          <span class="arrow">
+            ↗
+          </span>
 
-            <span class="shrink-0 text-2xl text-gray-400 transition-colors group-hover:text-black">
-              ↗
-            </span>
-
-          </a>
-
-        </article>
+        </a>
 
       ))
     }
@@ -99,3 +93,157 @@ const articles = [
 </section>
 
 </Layout>
+
+<style>
+
+.articles{
+
+    padding:90px 24px 120px;
+
+    background:#f8fafc;
+
+}
+
+.articles-container{
+
+    max-width:980px;
+
+    margin:0 auto;
+
+}
+
+.articles h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+
+    color:#111827;
+
+    margin-bottom:56px;
+
+}
+
+.article{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:72px;
+
+    padding:36px 0;
+
+    border-bottom:1px solid #e5e7eb;
+
+    text-decoration:none;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+
+}
+
+.title{
+
+    flex:1;
+
+    font-size:26px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    color:#111827;
+
+    transition:color .25s ease;
+
+}
+
+.arrow{
+
+    flex-shrink:0;
+
+    padding-right:10px;
+
+    font-size:24px;
+
+    color:#9ca3af;
+
+    margin-top:6px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+
+}
+
+.article:hover{
+
+    transform:translateX(6px);
+
+}
+
+.article:hover .title{
+
+    color:#4b5563;
+
+}
+
+.article:hover .arrow{
+
+    color:#111827;
+
+    transform:translateX(6px);
+
+}
+
+@media(max-width:900px){
+
+    .articles{
+
+        padding:60px 24px 90px;
+
+    }
+
+    .articles h1{
+
+        font-size:40px;
+
+        margin-bottom:42px;
+
+    }
+
+    .article{
+
+        gap:20px;
+
+        padding:24px 0;
+
+    }
+
+    .title{
+
+        font-size:22px;
+
+        line-height:1.45;
+
+    }
+
+    .arrow{
+
+        font-size:20px;
+
+        margin-top:2px;
+
+        padding-right:0;
+
+    }
+
+}
+
+</style>
