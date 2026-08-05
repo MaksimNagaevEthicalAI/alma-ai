@@ -1,97 +1,120 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const articles = await getCollection("articles", ({ data }) => !data.draft);
-
-// новые сверху
-articles.sort(
-  (a, b) =>
-    b.data.pubDate.getTime() - a.data.pubDate.getTime()
-);
+const articles = [
+  {
+    title: "Why Love After 40 Can Be the Happiest Love of Your Life",
+    description: "Why emotional maturity often creates stronger, healthier, and more fulfilling relationships.",
+    url: "https://medium.com/@maksimnagaev/why-love-after-40-can-be-the-happiest-love-of-your-life-9b33f589e22a"
+  },
+  {
+    title: "You Don't Miss Them. You Miss How They Made You Feel",
+    description: "Sometimes what we grieve is not the person, but the emotional experience we had with them.",
+    url: "https://medium.com/@maksimnagaev/you-dont-miss-them-you-miss-how-they-made-you-feel-d4ff27232cf2"
+  },
+  {
+    title: "Love Is When Your Heart Still Beats Faster After Years and Distance",
+    description: "How genuine emotional connection can survive both time and separation.",
+    url: "https://medium.com/@maksimnagaev/love-is-when-your-heart-still-beats-faster-after-years-and-distance-a47530b3363c"
+  },
+  {
+    title: "ADHD in Relationships",
+    description: "Understanding how ADHD influences communication, emotions, and relationship dynamics.",
+    url: "https://medium.com/@maksimnagaev/adhd-in-relationships-f57343002a85"
+  },
+  {
+    title: "Why Vacation Romances Feel Like Real Love",
+    description: "Why relationships formed during travel often feel more intense than they really are.",
+    url: "https://medium.com/@maksimnagaev/why-vacation-romances-feel-like-real-love-7a0e129d3498"
+  },
+  {
+    title: "For Some People, Stable Relationships Feel Emotionally Unsafe",
+    description: "Why emotional calmness can unexpectedly trigger discomfort and anxiety.",
+    url: "https://medium.com/@maksimnagaev/for-some-people-stable-relationships-feel-emotionally-unsafe-726d044cd95f"
+  },
+  {
+    title: "Age Gap Relationships Don't Fail for the Reason You Think",
+    description: "Looking beyond stereotypes to understand what really predicts relationship success.",
+    url: "https://medium.com/@maksimnagaev/age-gap-relationships-dont-fail-for-the-reason-you-think-8d3c3d8a1dbc"
+  },
+  {
+    title: "Would You Start a Relationship If You Knew How It Ends?",
+    description: "A reflection on whether knowing the ending would change the value of love itself.",
+    url: "https://medium.com/@maksimnagaev/would-you-start-a-relationship-if-you-knew-how-it-ends-f6a0060564bc"
+  },
+  {
+    title: "Why Some Romantic Connections Feel Karmic — Even When They're Not",
+    description: "Why intense attraction often has psychological explanations rather than mystical ones.",
+    url: "https://medium.com/@maksimnagaev/why-some-romantic-connections-feel-karmic-even-when-theyre-not-066bdb7e227b"
+  },
+  {
+    title: "When a Relationship Gets Quiet, People Think Love Is Gone — But It Isn't",
+    description: "Silence does not necessarily mean emotional distance or the end of love.",
+    url: "https://medium.com/@maksimnagaev/when-a-relationship-gets-quiet-people-think-love-is-gone-but-it-isnt-e933ccb0617c"
+  },
+  {
+    title: "Most Relationships End Before the Breakup",
+    description: "The breakup often begins emotionally long before anyone says goodbye.",
+    url: "https://medium.com/@maksimnagaev/most-relationships-end-before-the-breakup-fd07c849f2bf"
+  },
+  {
+    title: "Can Friends With Benefits Really Stay Casual?",
+    description: "Exploring why casual relationships so often become emotionally complicated.",
+    url: "https://medium.com/@maksimnagaev/can-friends-with-benefits-really-stay-casual-0006a8f6b12b"
+  },
+  {
+    title: "One Gives Care. The Other Feels Control.",
+    description: "How different interpretations of the same behavior quietly create relationship conflict.",
+    url: "https://medium.com/@maksimnagaev/one-gives-care-the-other-feels-control-youre-not-misaligned-you-re-misunderstanding-each-other-049c082ac6fb"
+  }
+];
 ---
 
 <Layout title="Articles | ALMA AI">
 
-  <main class="container page">
+<section class="max-w-5xl mx-auto px-6 py-20">
 
-    <h1>Articles</h1>
+    <h1 class="text-5xl font-bold mb-6">
+        Selected Essays
+    </h1>
 
-    <p class="intro">
-      Essays and practical insights about relationships,
-      compatibility, emotional dynamics, and ethical AI.
+    <p class="text-xl text-gray-600 max-w-3xl mb-16">
+        A selection of essays exploring psychology, relationship dynamics,
+        attachment, communication, and long-term compatibility.
+        New articles are published regularly on Medium.
     </p>
 
-    <div class="articles">
-      {articles.map((article) => (
-        <a class="card" href={`/articles/${article.id}/`}>
-          <h2>{article.data.title}</h2>
+    <div class="space-y-10">
 
-          <p>{article.data.description}</p>
+        {
+            articles.map((article) => (
 
-          <span>
-            {article.data.pubDate.toLocaleDateString("en-US")}
-          </span>
-        </a>
-      ))}
+                <article class="border-b border-gray-200 pb-8">
+
+                    <h2 class="text-2xl font-semibold mb-3">
+                        {article.title}
+                    </h2>
+
+                    <p class="text-gray-600 leading-7 mb-5">
+                        {article.description}
+                    </p>
+
+                    <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center font-semibold text-black hover:opacity-70 transition"
+                    >
+                        Read on Medium →
+                    </a>
+
+                </article>
+
+            ))
+        }
+
     </div>
 
-  </main>
+</section>
 
 </Layout>
-
-
-<style>
-.page{
-  padding:100px 20px;
-}
-
-.page h1{
-  font-size:54px;
-  margin-bottom:25px;
-}
-
-.intro{
-  font-size:22px;
-  max-width:900px;
-  color:var(--muted);
-  line-height:1.8;
-  margin-bottom:60px;
-}
-
-.articles{
-  display:grid;
-  gap:28px;
-}
-
-.card{
-  display:block;
-  padding:28px;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  text-decoration:none;
-  color:inherit;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.card h2{
-  margin-bottom:12px;
-  font-size:30px;
-}
-
-.card p{
-  color:#666;
-  margin-bottom:16px;
-  line-height:1.7;
-}
-
-.card span{
-  font-size:14px;
-  color:#888;
-}
-</style>
