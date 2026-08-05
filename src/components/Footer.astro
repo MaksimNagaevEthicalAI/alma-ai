@@ -1,7 +1,10 @@
+---
+import { SOCIALS } from "../config/socials";
+---
+
 <footer class="footer">
 
     <div class="footer-inner">
-
 
         <div class="footer-brand">
 
@@ -15,8 +18,6 @@
             </p>
 
         </div>
-
-
 
         <div class="footer-column">
 
@@ -46,8 +47,6 @@
 
         </div>
 
-
-
         <div class="footer-column">
 
             <h4>
@@ -57,45 +56,42 @@
             <nav>
 
                 <a
-                href="https://www.linkedin.com/in/maksim-nagaev-9a03013a8/"
-                target="_blank"
-                rel="noopener">
+                    href={SOCIALS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     LinkedIn
                 </a>
 
-
                 <a
-                href="https://medium.com/@maksimnagaev"
-                target="_blank"
-                rel="noopener">
+                    href={SOCIALS.medium}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Medium
                 </a>
 
-
                 <a
-                href="https://substack.com/@maksimnagaev"
-                target="_blank"
-                rel="noopener">
+                    href={SOCIALS.substack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Substack
                 </a>
 
-
                 <a
-                href="https://button-alyssum-638.notion.site/ALMA-AI-32a45b82b970803984cfd20456a8f252"
-                target="_blank"
-                rel="noopener">
+                    href={SOCIALS.notion}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Notion Research
                 </a>
-
 
             </nav>
 
         </div>
 
-
     </div>
-
-
 
     <div class="copyright">
 
@@ -103,10 +99,7 @@
 
     </div>
 
-
 </footer>
-
-
 
 <style>
 
@@ -119,8 +112,6 @@
     padding:70px 40px 30px;
 
 }
-
-
 
 .footer-inner{
 
@@ -136,8 +127,6 @@
 
 }
 
-
-
 .footer h3{
 
     font-size:24px;
@@ -146,15 +135,11 @@
 
 }
 
-
-
 .footer h4{
 
     margin:0 0 20px;
 
 }
-
-
 
 .footer p{
 
@@ -166,8 +151,6 @@
 
 }
 
-
-
 .footer nav{
 
     display:flex;
@@ -178,25 +161,21 @@
 
 }
 
-
-
 .footer a{
 
     color:#cbd5e1;
 
     text-decoration:none;
 
+    transition:.2s;
+
 }
-
-
 
 .footer a:hover{
 
     color:white;
 
 }
-
-
 
 .copyright{
 
@@ -213,8 +192,6 @@
     font-size:14px;
 
 }
-
-
 
 @media(max-width:700px){
 
