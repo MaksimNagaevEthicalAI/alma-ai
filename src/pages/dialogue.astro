@@ -34,26 +34,32 @@ import Layout from "../layouts/Layout.astro";
 
         </div>
 
-        <div
-            id="messages"
-            class="messages"
-        >
+<div
+    id="messages"
+    class="messages"
+>
 
-            <div class="assistant">
+    <div class="assistant">
 
-                <div class="bubble">
+        <div class="label">
 
-                    Hello.
-
-                    One answer in your questionnaire caught my attention.
-
-                    Could you tell me what brought you to ALMA today?
-
-                </div>
-
-            </div>
+            ALMA
 
         </div>
+
+        <div class="bubble">
+
+            Hello.
+
+            One answer in your questionnaire caught my attention.
+
+            Could you tell me what brought you to ALMA today?
+
+        </div>
+
+    </div>
+
+</div>
 
         <form
             id="chatForm"
@@ -93,17 +99,31 @@ const messages = document.getElementById("messages");
  * @param {string} text
  */
 function appendBubble(role, text) {
+
     if (!(messages instanceof HTMLElement)) return;
+
     const wrapper = document.createElement("div");
     wrapper.className = role;
+
+    const label = document.createElement("div");
+    label.className = "label";
+    label.textContent =
+        role === "assistant"
+            ? "ALMA"
+            : "You";
+
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = text;
-    wrapper.appendChild(bubble);
-    messages.appendChild(wrapper);
-    messages.scrollTop = messages.scrollHeight;
-}
 
+    wrapper.appendChild(label);
+    wrapper.appendChild(bubble);
+
+    messages.appendChild(wrapper);
+
+    messages.scrollTop = messages.scrollHeight;
+
+}
 async function sendMessage() {
     if (!(input instanceof HTMLTextAreaElement)) return;
     const text = input.value.trim();
