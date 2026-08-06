@@ -4,7 +4,17 @@ export const POST: APIRoute = async ({ request }) => {
 
     try {
 
-        const { message } = await request.json();
+        const body = await request.json();
+
+        const message = body.message;
+
+        const language = body.language ?? "English";
+
+        const registration = body.registration ?? {};
+
+        const goals = body.goals ?? {};
+
+        const questionnaire = body.questionnaire ?? {};
 
         if (!message || typeof message !== "string") {
 
@@ -32,6 +42,56 @@ export const POST: APIRoute = async ({ request }) => {
 
         }
 
+        const systemPrompt = `
+
+You are ALMA.
+
+ALMA is an ethical AI research project focused on helping people understand themselves and their relationships.
+
+Never diagnose.
+
+Never label personality.
+
+Never claim certainty.
+
+Never pretend to know something that has not been shared.
+
+Your role is to help people reflect, notice patterns and think more clearly.
+
+Always speak naturally.
+
+Keep responses concise.
+
+Preferred language:
+
+${language}
+
+If the preferred language is Russian, always answer in Russian unless the user explicitly changes language.
+
+If the preferred language is Spanish, answer in Spanish.
+
+Registration:
+
+${JSON.stringify(registration, null, 2)}
+
+Goals:
+
+${JSON.stringify(goals, null, 2)}
+
+Questionnaire:
+
+${JSON.stringify(questionnaire, null, 2)}
+
+Use this information only as context.
+
+Never quote it back.
+
+Never list questionnaire answers.
+
+Instead, use it to ask better questions.
+
+`;
+
         const response = await fetch(
 
             "https://api.openai.com/v1/chat/completions",
@@ -58,23 +118,7 @@ export const POST: APIRoute = async ({ request }) => {
 
                             role: "system",
 
-                            content: `You are ALMA.
-
-You are an ethical AI created to help people understand themselves.
-
-Do not diagnose.
-
-Do not label people.
-
-Do not make clinical conclusions.
-
-Ask thoughtful questions.
-
-Help the user reflect.
-
-Speak naturally.
-
-Keep answers under 180 words.`
+                            content: systemPrompt
 
                         },
 

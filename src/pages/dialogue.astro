@@ -116,14 +116,42 @@ async function sendMessage() {
             ? messages.lastElementChild?.querySelector(".bubble")
             : null;
     try {
+        const registration = JSON.parse(
+            localStorage.getItem("registration") || "{}"
+        );
+
+        const goals = JSON.parse(
+            localStorage.getItem("goals") || "{}"
+        );
+
+        const questionnaire = JSON.parse(
+            localStorage.getItem("questionnaire") || "{}"
+        );
+
         const response = await fetch("/api/chat", {
+
             method: "POST",
+
             headers: {
+
                 "Content-Type": "application/json"
+
             },
+
             body: JSON.stringify({
-                message: text
+
+                message: text,
+
+                language: registration.language || "English",
+
+                registration,
+
+                goals,
+
+                questionnaire
+
             })
+
         });
         const data = await response.json();
         if (!response.ok) {
