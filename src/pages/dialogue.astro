@@ -34,32 +34,32 @@ import Layout from "../layouts/Layout.astro";
 
         </div>
 
-<div
-    id="messages"
-    class="messages"
->
+        <div
+            id="messages"
+            class="messages"
+        >
 
-    <div class="assistant">
+            <div class="assistant">
 
-        <div class="label">
+                <div class="label">
 
-            ALMA
+                    ALMA
+
+                </div>
+
+                <div class="bubble">
+
+                    Hello.
+
+                    One answer in your questionnaire caught my attention.
+
+                    Could you tell me what brought you to ALMA today?
+
+                </div>
+
+            </div>
 
         </div>
-
-        <div class="bubble">
-
-            Hello.
-
-            One answer in your questionnaire caught my attention.
-
-            Could you tell me what brought you to ALMA today?
-
-        </div>
-
-    </div>
-
-</div>
 
         <form
             id="chatForm"
@@ -123,18 +123,20 @@ function appendBubble(role, text) {
 
     messages.scrollTop = messages.scrollHeight;
 
+    return bubble;
+
 }
+
 async function sendMessage() {
     if (!(input instanceof HTMLTextAreaElement)) return;
     const text = input.value.trim();
     if (!text) return;
+
     appendBubble("user", text);
     input.value = "";
-    appendBubble("assistant", "Thinking...");
-    const thinkingBubble =
-        messages instanceof HTMLElement
-            ? messages.lastElementChild?.querySelector(".bubble")
-            : null;
+
+    const thinkingBubble = appendBubble("assistant", "Thinking...");
+
     try {
         const registration = JSON.parse(
             localStorage.getItem("registration") || "{}"
@@ -173,10 +175,13 @@ async function sendMessage() {
             })
 
         });
+
         const data = await response.json();
+
         if (!response.ok) {
             throw new Error(data.error || "Unknown error");
         }
+
         if (thinkingBubble) {
             thinkingBubble.textContent = data.reply;
         }
@@ -187,6 +192,10 @@ async function sendMessage() {
             thinkingBubble.textContent =
                 "Sorry, something went wrong while contacting ALMA.";
         }
+    }
+
+    if (messages instanceof HTMLElement) {
+        messages.scrollTop = messages.scrollHeight;
     }
 }
 
@@ -208,7 +217,7 @@ if (input instanceof HTMLTextAreaElement) {
 
 </script>
 
-<style>
+<style is:global>
 
 .dialogue{
 
@@ -300,81 +309,102 @@ if (input instanceof HTMLTextAreaElement) {
 
     background:#fafafa;
 
+    display:flex;
+
+    flex-direction:column;
+
 }
 
 .assistant,
 .user{
 
-display:flex;
-flex-direction:column;
-margin-bottom:28px;
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:28px;
+
+    max-width:100%;
 
 }
 
 .assistant{
 
-align-items:flex-start;
+    align-items:flex-start;
 
 }
 
 .user{
 
-align-items:flex-end;
+    align-items:flex-end;
 
 }
 
-.assistant::before{
+.label{
 
-content:"ALMA";
+    font-size:13px;
 
-font-size:13px;
-font-weight:700;
-color:#64748b;
-margin-bottom:8px;
-margin-left:6px;
+    font-weight:700;
+
+    margin-bottom:8px;
 
 }
 
-.user::before{
+.assistant .label{
 
-content:"You";
+    color:#64748b;
 
-font-size:13px;
-font-weight:700;
-color:#2563eb;
-margin-bottom:8px;
-margin-right:6px;
+    margin-left:6px;
+
+}
+
+.user .label{
+
+    color:#2563eb;
+
+    margin-right:6px;
 
 }
 
 .bubble{
 
-max-width:72%;
-padding:18px 22px;
-border-radius:20px;
-line-height:1.8;
-font-size:17px;
-white-space:pre-wrap;
-word-break:break-word;
+    max-width:72%;
 
-box-shadow:0 8px 20px rgba(0,0,0,.05);
+    padding:18px 22px;
+
+    border-radius:20px;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
 
 }
 
 .assistant .bubble{
 
-background:white;
-border:1px solid #dbe3ea;
-color:#111827;
-border-top-left-radius:6px;
+    background:white;
+
+    border:1px solid #dbe3ea;
+
+    color:#111827;
+
+    border-top-left-radius:6px;
 
 }
 
 .user .bubble{
 
-background:#2563eb;
-color:white;
-border-top-right-radius:6px;
+    background:#2563eb;
+
+    color:white;
+
+    border-top-right-radius:6px;
 
 }
 
