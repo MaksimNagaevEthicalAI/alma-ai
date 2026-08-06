@@ -283,58 +283,78 @@ if (input instanceof HTMLTextAreaElement) {
 }
 
 .assistant,
-
 .user{
 
-    display:flex;
-
-    margin-bottom:24px;
+display:flex;
+flex-direction:column;
+margin-bottom:28px;
 
 }
 
 .assistant{
 
-    justify-content:flex-start;
+align-items:flex-start;
 
 }
 
 .user{
 
-    justify-content:flex-end;
+align-items:flex-end;
+
+}
+
+.assistant::before{
+
+content:"ALMA";
+
+font-size:13px;
+font-weight:700;
+color:#64748b;
+margin-bottom:8px;
+margin-left:6px;
+
+}
+
+.user::before{
+
+content:"You";
+
+font-size:13px;
+font-weight:700;
+color:#2563eb;
+margin-bottom:8px;
+margin-right:6px;
 
 }
 
 .bubble{
 
-    max-width:75%;
+max-width:72%;
+padding:18px 22px;
+border-radius:20px;
+line-height:1.8;
+font-size:17px;
+white-space:pre-wrap;
+word-break:break-word;
 
-    padding:18px 22px;
-
-    border-radius:18px;
-
-    line-height:1.7;
-
-    font-size:17px;
-
-    white-space:pre-wrap;
+box-shadow:0 8px 20px rgba(0,0,0,.05);
 
 }
 
 .assistant .bubble{
 
-    background:white;
-
-    border:1px solid #dbe3ea;
-
-    color:#111827;
+background:white;
+border:1px solid #dbe3ea;
+color:#111827;
+border-top-left-radius:6px;
 
 }
 
 .user .bubble{
 
-    background:#2563eb;
-
-    color:white;
+background:#2563eb;
+color:white;
+border-top-right-radius:6px;
 
 }
 
