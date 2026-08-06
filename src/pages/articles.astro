@@ -63,10 +63,6 @@ const articles = [
     url: "https://medium.com/@maksimnagaev/one-gives-care-the-other-feels-control-youre-not-misaligned-you-re-misunderstanding-each-other-049c082ac6fb"
   }
 ];
-
-function num(i: number) {
-  return String(i + 1).padStart(2, "0");
-}
 ---
 
 <Layout title="Articles | ALMA AI">
@@ -77,21 +73,23 @@ function num(i: number) {
 
     <div class="masthead">
 
-      <span class="eyebrow">Selected Essays</span>
+      <span class="eyebrow">The Ideas That Shaped ALMA</span>
 
-      <h1>On love, distance, and the patterns we rarely see in ourselves.</h1>
+      <h1>ALMA didn't begin with answers. It began with questions.</h1>
 
       <p class="deck">
-        Fifteen essays on attraction, attachment, and why relationships
-        succeed or quietly fall apart — written while building ALMA.
+        These essays explore the relationship patterns, emotional dynamics,
+        and psychological ideas that gradually became part of how ALMA
+        understands people. They are not documentation of the product —
+        they are part of its foundation.
       </p>
 
     </div>
 
-    <ol class="list">
+    <ul class="list">
 
       {
-        articles.map((article, i) => (
+        articles.map((article) => (
 
           <li class="row">
 
@@ -102,18 +100,8 @@ function num(i: number) {
               class="article"
             >
 
-              <span class="index">{num(i)}</span>
-
-              <span class="body">
-
-                <span class="title">
-                  {article.title}
-                </span>
-
-                <span class="meta">
-                  Read on Medium
-                </span>
-
+              <span class="title">
+                {article.title}
               </span>
 
               <span class="go" aria-hidden="true">
@@ -127,7 +115,7 @@ function num(i: number) {
         ))
       }
 
-    </ol>
+    </ul>
 
   </div>
 
@@ -149,7 +137,7 @@ function num(i: number) {
 
 .articles-container{
 
-    max-width:880px;
+    max-width:960px;
     margin:0 auto;
 
 }
@@ -157,6 +145,7 @@ function num(i: number) {
 .masthead{
 
     margin-bottom:72px;
+    max-width:760px;
 
 }
 
@@ -182,7 +171,6 @@ function num(i: number) {
     letter-spacing:-.01em;
     color:#111827;
     margin:0 0 22px;
-    max-width:15ch;
 
 }
 
@@ -191,7 +179,7 @@ function num(i: number) {
     font-size:18px;
     line-height:1.7;
     color:#64748b;
-    max-width:52ch;
+    max-width:58ch;
     margin:0;
 
 }
@@ -216,7 +204,8 @@ function num(i: number) {
     position:relative;
 
     display:flex;
-    align-items:baseline;
+    align-items:center;
+    justify-content:space-between;
     gap:28px;
 
     padding:30px 14px;
@@ -256,39 +245,10 @@ function num(i: number) {
 
 }
 
-.index{
-
-    flex-shrink:0;
-
-    font-family:'Fraunces',serif;
-    font-weight:400;
-    font-size:20px;
-    color:#c4cbd4;
-
-    transition:color .3s ease;
-
-    font-variant-numeric:tabular-nums;
-
-}
-
-.article:hover .index{
-
-    color:#2563eb;
-
-}
-
-.body{
+.title{
 
     flex:1;
     min-width:0;
-
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-
-}
-
-.title{
 
     font-family:'Fraunces',serif;
     font-weight:460;
@@ -304,16 +264,6 @@ function num(i: number) {
 .article:hover .title{
 
     color:#1d4ed8;
-
-}
-
-.meta{
-
-    font-size:13px;
-    font-weight:500;
-    letter-spacing:.03em;
-    text-transform:uppercase;
-    color:#9aa4b2;
 
 }
 
@@ -366,8 +316,7 @@ function num(i: number) {
 
     .masthead h1{
 
-        font-size:32px;
-        max-width:none;
+        font-size:30px;
 
     }
 
@@ -381,7 +330,6 @@ function num(i: number) {
 
         gap:16px;
         padding:24px 10px;
-        align-items:flex-start;
 
     }
 
@@ -394,12 +342,6 @@ function num(i: number) {
     .article::before{
 
         display:none;
-
-    }
-
-    .index{
-
-        font-size:16px;
 
     }
 
