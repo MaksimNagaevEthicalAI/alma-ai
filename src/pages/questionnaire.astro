@@ -1,0 +1,695 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const QUESTIONS = [
+
+    {
+        id: 1,
+        dimension: "decision_making",
+        construct: "reflection",
+        weight: 1.0,
+        question:
+            "Before making an important decision, I usually consider many different options.",
+    },
+
+    {
+        id: 2,
+        dimension: "decision_making",
+        construct: "uncertainty",
+        weight: 1.0,
+        question:
+            "I feel uncomfortable making important decisions when information is incomplete.",
+    },
+
+    {
+        id: 3,
+        dimension: "decision_making",
+        construct: "confidence",
+        weight: 0.9,
+        question:
+            "Once I make a decision, I rarely question it afterward.",
+    },
+
+    {
+        id: 4,
+        dimension: "decision_making",
+        construct: "risk",
+        weight: 0.8,
+        question:
+            "I enjoy taking risks if the potential reward is high.",
+    },
+
+    {
+        id: 5,
+        dimension: "relationships",
+        construct: "trust",
+        weight: 1.0,
+        question:
+            "Trust is something people should earn over time.",
+    },
+
+    {
+        id: 6,
+        dimension: "relationships",
+        construct: "closeness",
+        weight: 1.0,
+        question:
+            "I usually find it easy to become emotionally close to someone.",
+    },
+
+    {
+        id: 7,
+        dimension: "relationships",
+        construct: "conflict",
+        weight: 0.9,
+        question:
+            "I prefer resolving conflicts immediately instead of avoiding them.",
+    },
+
+    {
+        id: 8,
+        dimension: "relationships",
+        construct: "independence",
+        weight: 0.8,
+        question:
+            "Maintaining personal independence is very important to me in relationships.",
+    },
+
+    {
+        id: 9,
+        dimension: "emotions",
+        construct: "awareness",
+        weight: 1.0,
+        question:
+            "I usually understand why I feel the way I do.",
+    },
+
+    {
+        id: 10,
+        dimension: "emotions",
+        construct: "expression",
+        weight: 1.0,
+        question:
+            "I openly express my emotions to people I trust.",
+    },
+
+    {
+        id: 11,
+        dimension: "emotions",
+        construct: "regulation",
+        weight: 1.0,
+        question:
+            "Strong emotions rarely interfere with my daily life.",
+    },
+
+    {
+        id: 12,
+        dimension: "emotions",
+        construct: "recovery",
+        weight: 0.8,
+        question:
+            "After difficult experiences, I usually recover relatively quickly.",
+    },
+
+    {
+        id: 13,
+        dimension: "self_reflection",
+        construct: "curiosity",
+        weight: 1.0,
+        question:
+            "I often think about why I behave the way I do.",
+    },
+
+    {
+        id: 14,
+        dimension: "self_reflection",
+        construct: "growth",
+        weight: 1.0,
+        question:
+            "Personal growth is one of my highest priorities.",
+    },
+
+    {
+        id: 15,
+        dimension: "self_reflection",
+        construct: "feedback",
+        weight: 0.8,
+        question:
+            "I appreciate honest feedback, even when it is difficult to hear.",
+    },
+
+    {
+        id: 16,
+        dimension: "self_reflection",
+        construct: "change",
+        weight: 0.8,
+        question:
+            "I am willing to change my views when I encounter convincing evidence.",
+    },
+
+    {
+        id: 17,
+        dimension: "life_direction",
+        construct: "purpose",
+        weight: 1.0,
+        question:
+            "I have a clear sense of what I want from life.",
+    },
+
+    {
+        id: 18,
+        dimension: "life_direction",
+        construct: "values",
+        weight: 1.0,
+        question:
+            "My personal values guide most of my important decisions.",
+    },
+
+    {
+        id: 19,
+        dimension: "life_direction",
+        construct: "future",
+        weight: 0.8,
+        question:
+            "I regularly think about the person I want to become in the future.",
+    },
+
+    {
+        id: 20,
+        dimension: "life_direction",
+        construct: "balance",
+        weight: 0.8,
+        question:
+            "Overall, I feel my life is moving in the direction I want.",
+    },
+
+];
+
+const SCALE = [
+
+    "Strongly disagree",
+
+    "Disagree",
+
+    "Neither agree nor disagree",
+
+    "Agree",
+
+    "Strongly agree",
+
+];
+---
+
+<Layout title="Initial Questionnaire | ALMA AI">
+
+<section class="questionnaire">
+
+    <div class="card">
+
+        <h1>
+            Initial Questionnaire
+        </h1>
+
+        <p class="intro">
+            These questions are not a personality test.
+            They simply help ALMA choose the best starting point
+            for your first conversation.
+        </p>
+
+        <div class="progress">
+
+            <div class="progress-bar"></div>
+
+        </div>
+
+        <p class="progress-text">
+
+            20 questions · approximately 5 minutes
+
+        </p>
+
+        <form id="questionnaire-form">
+
+            {
+
+                QUESTIONS.map(
+
+                    (item) => (
+
+                        <div class="question">
+
+                            <h2>
+
+                                {item.id}. {item.question}
+
+                            </h2>
+
+                            <div class="answers">
+
+                                {
+
+                                    SCALE.map(
+
+                                        (answer, index) => (
+
+                                            <label>
+
+                                                <input
+
+                                                    type="radio"
+
+                                                    name={`q${item.id}`}
+
+                                                    value={index + 1}
+
+                                                    data-dimension={item.dimension}
+
+                                                    data-construct={item.construct}
+
+                                                    data-weight={item.weight}
+
+                                                    required
+
+                                                />
+
+                                                <span>
+
+                                                    {answer}
+
+                                                </span>
+
+                                            </label>
+
+                                        )
+
+                                    )
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    )
+
+                )
+
+            }
+
+            <div class="buttons">
+
+                <a
+
+                    href="/register"
+
+                    class="back"
+
+                >
+
+                    ← Back
+
+                </a>
+
+                <button
+
+                    type="submit"
+
+                    class="continue"
+
+                >
+
+                    Continue →
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<style>
+
+.questionnaire{
+
+    padding:80px 24px;
+
+    background:#f8fafc;
+
+    min-height:100vh;
+
+}
+
+.card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+}
+
+h1{
+
+    font-size:42px;
+
+    color:#111827;
+
+    margin-bottom:18px;
+
+}
+
+.intro{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#64748b;
+
+    margin-bottom:30px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin-bottom:12px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:100%;
+
+    background:#2563eb;
+
+}
+
+.progress-text{
+
+    color:#64748b;
+
+    margin-bottom:40px;
+
+}
+
+.question{
+
+    margin-bottom:42px;
+
+    padding-bottom:32px;
+
+    border-bottom:1px solid #edf2f7;
+
+}
+
+.question:last-of-type{
+
+    border-bottom:none;
+
+}
+
+.question h2{
+
+    font-size:22px;
+
+    line-height:1.5;
+
+    color:#111827;
+
+    margin-bottom:24px;
+
+}
+
+.answers{
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.answers label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 18px;
+
+    border:1px solid #dbe3ea;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.answers label:hover{
+
+    background:#f8fafc;
+
+    border-color:#2563eb;
+
+}
+
+.answers input{
+
+    transform:scale(1.2);
+
+    cursor:pointer;
+
+}
+
+.answers span{
+
+    font-size:16px;
+
+    color:#334155;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:50px;
+
+}
+
+.back{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 28px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:14px;
+
+    color:#111827;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.back:hover{
+
+    background:#f3f4f6;
+
+}
+
+.continue{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:16px 34px;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.continue:hover{
+
+    background:#1d4ed8;
+
+}
+
+@media(max-width:700px){
+
+    .card{
+
+        padding:30px;
+
+    }
+
+    h1{
+
+        font-size:34px;
+
+    }
+
+    .question h2{
+
+        font-size:19px;
+
+    }
+
+    .answers label{
+
+        padding:12px;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    .back,
+
+    .continue{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
+
+</style>
+
+<script>
+
+    // Collects answers on submit and computes a weighted score per dimension.
+    // Adjust the fetch() call below to point at your actual backend endpoint.
+
+    const form = document.getElementById("questionnaire-form") as HTMLFormElement;
+
+    form?.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        const rawAnswers: Record<string, number> = {};
+
+        for (const [key, value] of formData.entries()) {
+
+            rawAnswers[key] = Number(value);
+
+        }
+
+        const dimensionTotals: Record<string, { sum: number; weight: number }> = {};
+
+        const checkedInputs = form.querySelectorAll<HTMLInputElement>(
+
+            "input[type='radio']:checked"
+
+        );
+
+        checkedInputs.forEach((input) => {
+
+            const dimension = input.dataset.dimension!;
+
+            const weight = Number(input.dataset.weight);
+
+            const score = Number(input.value);
+
+            if (!dimensionTotals[dimension]) {
+
+                dimensionTotals[dimension] = { sum: 0, weight: 0 };
+
+            }
+
+            dimensionTotals[dimension].sum += score * weight;
+
+            dimensionTotals[dimension].weight += weight;
+
+        });
+
+        const dimensionScores: Record<string, number> = {};
+
+        for (const [dimension, { sum, weight }] of Object.entries(dimensionTotals)) {
+
+            // Normalized to a 0..1 scale (raw scores are 1..5)
+
+            dimensionScores[dimension] = ((sum / weight) - 1) / 4;
+
+        }
+
+        const payload = {
+
+            rawAnswers,
+
+            dimensionScores,
+
+        };
+
+        console.log("Questionnaire payload:", payload);
+
+        // Example: send to your backend
+        // fetch("/api/questionnaire", {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify(payload),
+        // }).then(() => {
+        //     window.location.href = "/dashboard";
+        // });
+
+    });
+
+</script>
+
+</Layout>

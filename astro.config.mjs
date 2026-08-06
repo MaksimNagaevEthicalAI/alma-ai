@@ -6,7 +6,10 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+
   site: "https://alma-ai.space",
+
+  output: "server",
 
   vite: {
     plugins: [tailwindcss()],
@@ -16,4 +19,5 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
+
 });
