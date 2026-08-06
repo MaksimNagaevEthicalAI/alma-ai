@@ -19,11 +19,11 @@ const articles = [
     url: "https://medium.com/@maksimnagaev/adhd-in-relationships-f57343002a85"
   },
  {
-    title: "Every Relationship Has an Exchange — We Just Don’t Like to Admit It",
+    title: "Every Relationship Has an Exchange — We Just Don't Like to Admit It",
     url: "https://medium.com/@maksimnagaev/every-relationship-has-an-exchange-we-just-dont-like-to-admit-it-74844cb5f8fe?sharedUserId=maksimnagaev"
   },
  {
-    title: "Why So Many People Stay Alone — Even When They Want a Relationship",
+    title: "Why So Many People Stay Alone — Even When They Want a Relationship",
     url: "https://medium.com/@maksimnagaev/why-so-many-people-stay-alone-even-when-they-want-a-relationship-72bdec1d03ed?sharedUserId=maksimnagaev"
   },
   {
@@ -63,6 +63,10 @@ const articles = [
     url: "https://medium.com/@maksimnagaev/one-gives-care-the-other-feels-control-youre-not-misaligned-you-re-misunderstanding-each-other-049c082ac6fb"
   }
 ];
+
+function num(i: number) {
+  return String(i + 1).padStart(2, "0");
+}
 ---
 
 <Layout title="Articles | ALMA AI">
@@ -71,30 +75,59 @@ const articles = [
 
   <div class="articles-container">
 
-    <h1>Selected Essays</h1>
+    <div class="masthead">
 
-    {
-      articles.map((article) => (
+      <span class="eyebrow">Selected Essays</span>
 
-        <a
-          href={article.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="article"
-        >
+      <h1>On love, distance, and the patterns we rarely see in ourselves.</h1>
 
-          <span class="title">
-            {article.title}
-          </span>
+      <p class="deck">
+        Fifteen essays on attraction, attachment, and why relationships
+        succeed or quietly fall apart — written while building ALMA.
+      </p>
 
-          <span class="arrow">
-            ↗
-          </span>
+    </div>
 
-        </a>
+    <ol class="list">
 
-      ))
-    }
+      {
+        articles.map((article, i) => (
+
+          <li class="row">
+
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="article"
+            >
+
+              <span class="index">{num(i)}</span>
+
+              <span class="body">
+
+                <span class="title">
+                  {article.title}
+                </span>
+
+                <span class="meta">
+                  Read on Medium
+                </span>
+
+              </span>
+
+              <span class="go" aria-hidden="true">
+                ↗
+              </span>
+
+            </a>
+
+          </li>
+
+        ))
+      }
+
+    </ol>
 
   </div>
 
@@ -104,89 +137,216 @@ const articles = [
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340..600&family=Inter:wght@400;500;600;700&display=swap');
+
 .articles{
 
-    padding:90px 24px 120px;
+    padding:100px 24px 140px;
     background:#f8fafc;
+    font-family:'Inter',system-ui,sans-serif;
 
 }
 
 .articles-container{
 
-    max-width:920px;
+    max-width:880px;
     margin:0 auto;
 
 }
 
-.articles h1{
+.masthead{
 
-    font-size:52px;
-    font-weight:700;
-    letter-spacing:-2px;
+    margin-bottom:72px;
+
+}
+
+.eyebrow{
+
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#2563eb;
+    margin-bottom:20px;
+
+}
+
+.masthead h1{
+
+    font-family:'Fraunces',serif;
+    font-optical-sizing:auto;
+    font-weight:440;
+    font-size:44px;
+    line-height:1.22;
+    letter-spacing:-.01em;
     color:#111827;
-    margin-bottom:56px;
+    margin:0 0 22px;
+    max-width:15ch;
+
+}
+
+.deck{
+
+    font-size:18px;
+    line-height:1.7;
+    color:#64748b;
+    max-width:52ch;
+    margin:0;
+
+}
+
+.list{
+
+    list-style:none;
+    margin:0;
+    padding:0;
+    border-top:1px solid #e3e8ef;
+
+}
+
+.row{
+
+    border-bottom:1px solid #e3e8ef;
 
 }
 
 .article{
 
+    position:relative;
+
     display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
+    align-items:baseline;
+    gap:28px;
 
-    gap:56px;
-
-    padding:26px 0;
-
-    border-bottom:1px solid #eef2f7;
+    padding:30px 14px;
 
     text-decoration:none;
+
+    transition:padding-left .3s ease, background-color .3s ease;
+
+}
+
+.article::before{
+
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:#2563eb;
+
+    transform:scaleY(0);
+    transform-origin:center;
+    transition:transform .3s ease;
+
+}
+
+.article:hover{
+
+    background:#ffffff;
+    padding-left:26px;
+
+}
+
+.article:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+.index{
+
+    flex-shrink:0;
+
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:20px;
+    color:#c4cbd4;
+
+    transition:color .3s ease;
+
+    font-variant-numeric:tabular-nums;
+
+}
+
+.article:hover .index{
+
+    color:#2563eb;
+
+}
+
+.body{
+
+    flex:1;
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 
 }
 
 .title{
 
-    flex:1;
-
-    font-size:27px;
-
-    font-weight:600;
-
+    font-family:'Fraunces',serif;
+    font-weight:460;
+    font-size:23px;
     line-height:1.4;
-
+    letter-spacing:-.005em;
     color:#111827;
 
-    transition:color .25s ease;
-
-}
-
-.arrow{
-
-    flex-shrink:0;
-
-    font-size:22px;
-
-    color:#9ca3af;
-
-    margin-top:5px;
-
-    transition:
-        color .25s ease,
-        transform .25s ease;
+    transition:color .3s ease;
 
 }
 
 .article:hover .title{
 
-    color:#4b5563;
+    color:#1d4ed8;
 
 }
 
-.article:hover .arrow{
+.meta{
 
-    color:#111827;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:#9aa4b2;
 
-    transform:translateX(6px);
+}
+
+.go{
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+    border-radius:999px;
+    border:1px solid #dbe3ea;
+
+    font-size:16px;
+    color:#9aa4b2;
+
+    transition:
+        background-color .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+.article:hover .go{
+
+    background:#2563eb;
+    border-color:#2563eb;
+    color:#ffffff;
+    transform:translate(2px,-2px);
 
 }
 
@@ -194,35 +354,66 @@ const articles = [
 
     .articles{
 
-        padding:60px 24px 90px;
+        padding:64px 20px 100px;
 
     }
 
-    .articles h1{
+    .masthead{
 
-        font-size:40px;
-        margin-bottom:42px;
+        margin-bottom:48px;
+
+    }
+
+    .masthead h1{
+
+        font-size:32px;
+        max-width:none;
+
+    }
+
+    .deck{
+
+        font-size:16px;
 
     }
 
     .article{
 
-        gap:20px;
-        padding:22px 0;
+        gap:16px;
+        padding:24px 10px;
+        align-items:flex-start;
+
+    }
+
+    .article:hover{
+
+        padding-left:10px;
+
+    }
+
+    .article::before{
+
+        display:none;
+
+    }
+
+    .index{
+
+        font-size:16px;
 
     }
 
     .title{
 
-        font-size:22px;
-        line-height:1.45;
+        font-size:19px;
 
     }
 
-    .arrow{
+    .go{
 
-        font-size:20px;
-        margin-top:2px;
+        width:32px;
+        height:32px;
+        font-size:14px;
 
     }
 
