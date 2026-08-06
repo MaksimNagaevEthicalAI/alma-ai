@@ -677,18 +677,17 @@ h1{
 
         };
 
-        console.log("Questionnaire payload:", payload);
+        localStorage.setItem(
 
-        // Example: send to your backend
-        // fetch("/api/questionnaire", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(payload),
-        // }).then(() => {
-        //     window.location.href = "/dashboard";
-        // });
+            "questionnaire",
+        
+            JSON.stringify(payload)
+        
+        );
 
-    });
+        window.location.href = "/dialogue";
+
+        });
 
 </script>
 
