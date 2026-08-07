@@ -1,26 +1,30 @@
 ---
 const steps = [
   {
+    number: "①",
+    emoji: "💬",
     title: "Start a Dialogue",
     text: "Begin with yourself, another person, or an existing relationship."
   },
   {
+    number: "②",
+    emoji: "🧠",
     title: "Reveal Patterns",
     text: "ALMA identifies emotional, behavioral and psychological patterns through structured conversation."
   },
   {
+    number: "③",
+    emoji: "🔍",
     title: "Transparent Insights",
     text: "Every conclusion is explained. No hidden scores. No black-box predictions."
   },
   {
+    number: "④",
+    emoji: "❤️",
     title: "Better Decisions",
     text: "Understand compatibility before making important relationship choices."
   }
 ];
-
-function num(i: number) {
-  return String(i + 1).padStart(2, "0");
-}
 ---
 
 <section class="how">
@@ -42,11 +46,17 @@ function num(i: number) {
         <div class="steps">
 
             {
-                steps.map((step, i) => (
+                steps.map((step) => (
 
                     <div class="step">
 
-                        <span class="step-num">{num(i)}</span>
+                        <div class="step-icon">
+
+                            <span class="step-emoji">{step.emoji}</span>
+
+                            <span class="step-number">{step.number}</span>
+
+                        </div>
 
                         <h3>{step.title}</h3>
 
@@ -149,19 +159,67 @@ function num(i: number) {
 
 }
 
-.step-num{
+.step-icon{
 
-    display:block;
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:20px;
+
+    background:#eef4ff;
+
+    margin-bottom:22px;
+
+}
+
+.step-emoji{
+
+    font-size:26px;
+
+    line-height:1;
+
+}
+
+.step-number{
+
+    position:absolute;
+
+    top:-10px;
+
+    left:-10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:26px;
+
+    height:26px;
+
+    border-radius:999px;
+
+    background:#2563eb;
+
+    color:#ffffff;
 
     font-family:'Fraunces',serif;
 
-    font-weight:420;
+    font-weight:500;
 
-    font-size:22px;
+    font-size:14px;
 
-    color:#2563eb;
-
-    margin-bottom:18px;
+    box-shadow:0 4px 10px rgba(37,99,235,.35);
 
 }
 
