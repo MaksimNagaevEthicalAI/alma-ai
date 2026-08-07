@@ -1,353 +1,234 @@
----
-import Layout from "../layouts/Layout.astro";
----
+<div class="card">
 
-<Layout title="Welcome | ALMA AI">
+    <span class="badge">
+        ALMA Research
+    </span>
 
-<section class="register">
+    <h1>
+        Understanding People, Not Just Conversations.
+    </h1>
 
-    <div class="card">
+    <p class="intro">
 
-        <span class="badge">
-            ALMA Research Preview
-        </span>
+        Most AI systems today are designed to generate better answers.
 
-        <h1>
-            Welcome to ALMA
-        </h1>
+        ALMA explores a different question:
 
-        <p class="intro">
+        <strong>Can artificial intelligence gradually learn to understand a person instead of simply responding to prompts?</strong>
 
-            During this research phase, creating an account,
-            confirming your email address or phone number is
-            <strong>not required.</strong>
+    </p>
 
-        </p>
+    <p>
 
-        <p class="intro">
+        Language models have made natural conversation possible.
 
-            We only ask for a small amount of information to help
-            ALMA better understand the context of your future
-            conversations.
+        But conversation isn't understanding.
 
-            You may skip your name if you prefer.
+        Even when AI remembers previous chats, it rarely develops an evolving understanding of the person behind them.
 
-        </p>
+        ALMA investigates what comes next.
 
-        <form id="registrationForm">
+    </p>
 
-            <label>
+    <div class="quote">
 
-                First name (optional)
+        Conversation isn't understanding.<br>
 
-                <input
-                    id="name"
-                    type="text"
-                    placeholder="Your name"
-                />
-
-            </label>
-
-            <label>
-
-                Age
-
-                <input
-                    id="age"
-                    type="number"
-                    min="18"
-                    max="120"
-                    required
-                />
-
-            </label>
-
-            <label>
-
-                Country
-
-                <input
-                    id="country"
-                    type="text"
-                    placeholder="Country"
-                    required
-                />
-
-            </label>
-
-            <label>
-
-                Gender
-
-                <select id="gender">
-
-                    <option>Male</option>
-
-                    <option>Female</option>
-
-                    <option>Non-binary</option>
-
-                    <option>Prefer not to say</option>
-
-                </select>
-
-            </label>
-
-            <label>
-
-                Relationship Status
-
-                <select id="relationship">
-
-                    <option>Single</option>
-
-                    <option>In a relationship</option>
-
-                    <option>Married</option>
-
-                    <option>Divorced</option>
-
-                    <option>Widowed</option>
-
-                    <option>Prefer not to say</option>
-
-                </select>
-
-            </label>
-
-            <label>
-
-                Preferred language
-
-                <select id="language">
-
-                    <option>English</option>
-
-                    <option>Русский</option>
-
-                    <option>Español</option>
-
-                </select>
-
-            </label>
-
-            <button
-                type="submit"
-                class="continue"
-            >
-
-                Continue →
-
-            </button>
-
-        </form>
+        Understanding takes time.
 
     </div>
 
-</section>
+    <h2>
+        Beyond Language Models
+    </h2>
 
-<script>
+    <p>
 
-const form=document.getElementById("registrationForm");
+        ALMA is not another language model competing on better answers.
 
-form?.addEventListener("submit",(event)=>{
+        A language model is only one component inside the system — not its purpose.
 
-    event.preventDefault();
+    </p>
 
-    const registration={
+    <p>
 
-        name:document.getElementById("name").value,
+        Our research focuses on building something that learns between conversations:
+        a continuously evolving cognitive model of a person.
 
-        age:document.getElementById("age").value,
+        Not a transcript.
 
-        country:document.getElementById("country").value,
+        Not a summary.
 
-        gender:document.getElementById("gender").value,
+        An understanding that keeps refining itself.
 
-        relationship:document.getElementById("relationship").value,
+    </p>
 
-        language:document.getElementById("language").value
+    <p>
 
-    };
+        Instead of remembering messages, ALMA attempts to remember understanding.
 
-    localStorage.setItem(
+        That includes recurring themes, stable values, unresolved questions,
+        changing priorities and psychological hypotheses that become stronger —
+        or disappear — as new conversations provide new evidence.
 
-        "registration",
+    </p>
 
-        JSON.stringify(registration)
+    <div class="quote">
 
-    );
+        The goal was never to answer better.
 
-    window.location.href="/goals";
+        <br>
 
-});
+        <strong>The goal is to understand more accurately over time.</strong>
 
-</script>
+    </div>
+    <h2>
+        A Living Cognitive Model
+    </h2>
 
-<style>
+    <p>
 
-.register{
+        Think about how understanding forms between two people who know each other well.
 
-    min-height:100vh;
+        It isn't built in a single conversation.
 
-    background:#f8fafc;
+        It grows over time, adapts, gets corrected, and becomes more accurate through shared experience.
 
-    padding:80px 24px;
+    </p>
 
-}
+    <p>
 
-.card{
+        We believe AI should work the same way.
 
-    max-width:760px;
+        Instead of treating every conversation as a blank slate, ALMA continuously refines its understanding of a person while remaining transparent, open to revision, and willing to be wrong.
 
-    margin:auto;
+    </p>
 
-    background:white;
+    <p>
 
-    border-radius:24px;
+        It will never claim certainty.
 
-    padding:50px;
+        It will never diagnose.
 
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
+        It will never reduce a person to a personality label.
 
-}
+        Instead, it gradually builds a living cognitive model that can evolve alongside the individual.
 
-.badge{
+    </p>
 
-    display:inline-block;
+    <h2>
+        From Memory to Understanding
+    </h2>
 
-    padding:8px 18px;
+    <p>
 
-    border-radius:999px;
+        Most AI memory behaves like a filing cabinet.
 
-    background:#eef4ff;
+        It stores information and retrieves it later.
 
-    color:#2563eb;
+        Our research asks a more ambitious question:
 
-    font-weight:600;
+        <strong>Can memory become reasoning?</strong>
 
-    margin-bottom:24px;
+    </p>
 
-}
+    <p>
 
-h1{
+        Rather than retrieving old messages, ALMA experiments with structured observations, competing hypotheses, confidence levels, contradictions, and long-term consistency across conversations.
 
-    font-size:44px;
+        Understanding is treated as something that evolves—not something generated in a single response.
 
-    color:#111827;
+    </p>
 
-    margin-bottom:20px;
+    <h2>
+        Beyond Dating
+    </h2>
 
-}
+    <p>
 
-.intro{
+        Relationships are where this research begins, not where it ends.
 
-    font-size:18px;
+    </p>
 
-    line-height:1.8;
+    <p>
 
-    color:#64748b;
+        If AI can genuinely understand long-term human compatibility, the same principles may one day help people find not only compatible romantic partners, but also close friends, business partners, research collaborators, and high-performing teams.
 
-    margin-bottom:20px;
+    </p>
 
-}
+    <p>
 
-form{
+        One useful comparison comes from astronaut selection.
 
-    margin-top:40px;
+        Long-duration space missions are not built around individual talent alone.
 
-}
+        They depend on psychological compatibility, communication, resilience, and the ability to function together over long periods of time.
 
-label{
+    </p>
 
-    display:block;
+    <p>
 
-    margin-bottom:24px;
+        We believe compatibility may eventually become one of the most valuable forms of intelligence AI can help reveal.
 
-    font-weight:600;
+    </p>
+    <h2>
+        Current Research Directions
+    </h2>
 
-    color:#111827;
+    <ul class="research-list">
 
-}
+        <li>Long-term conversational memory</li>
 
-input,
+        <li>Human cognitive modeling</li>
 
-select{
+        <li>Observation and hypothesis generation</li>
 
-    width:100%;
+        <li>Long-term psychological compatibility</li>
 
-    margin-top:8px;
+        <li>Ethical AI for personal understanding</li>
 
-    padding:16px;
+        <li>Human decision-making patterns</li>
 
-    border:1px solid #dbe3ea;
+        <li>Explainable reasoning</li>
 
-    border-radius:14px;
+        <li>Transparent memory architectures</li>
 
-    font-size:16px;
+    </ul>
 
-    font-family:inherit;
+    <h2>
+        An Ongoing Research Initiative
+    </h2>
 
-}
+    <p>
 
-input:focus,
+        ALMA is an independent research initiative.
 
-select:focus{
+        Many of the ideas described here are still hypotheses rather than finished solutions.
 
-    outline:none;
+        Some will evolve.
 
-    border-color:#2563eb;
+        Some may prove impossible.
 
-}
+        That is an essential part of research.
 
-.continue{
+    </p>
 
-    width:100%;
+    <p>
 
-    margin-top:20px;
+        We are not trying to build another AI that simply produces better answers.
 
-    border:none;
+        We are exploring whether artificial intelligence can gradually develop a deeper understanding of the people it serves while remaining transparent, ethical, and always open to revision.
 
-    background:#2563eb;
+    </p>
 
-    color:white;
+    <div class="quote">
 
-    padding:18px;
+        <strong>Good research begins with better questions, not certainty.</strong>
 
-    border-radius:14px;
+        <br><br>
 
-    font-size:18px;
+        Every conversation with ALMA helps us better understand those questions.
 
-    font-weight:600;
+    </div>
 
-    cursor:pointer;
-
-    transition:.2s;
-
-}
-
-.continue:hover{
-
-    background:#1d4ed8;
-
-}
-
-@media(max-width:700px){
-
-    .card{
-
-        padding:30px;
-
-    }
-
-    h1{
-
-        font-size:34px;
-
-    }
-
-}
-
-</style>
-
-</Layout>
+</div>
