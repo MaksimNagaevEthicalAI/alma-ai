@@ -1,67 +1,61 @@
+---
+const steps = [
+  {
+    title: "Start a Dialogue",
+    text: "Begin with yourself, another person, or an existing relationship."
+  },
+  {
+    title: "Reveal Patterns",
+    text: "ALMA identifies emotional, behavioral and psychological patterns through structured conversation."
+  },
+  {
+    title: "Transparent Insights",
+    text: "Every conclusion is explained. No hidden scores. No black-box predictions."
+  },
+  {
+    title: "Better Decisions",
+    text: "Understand compatibility before making important relationship choices."
+  }
+];
+
+function num(i: number) {
+  return String(i + 1).padStart(2, "0");
+}
+---
+
 <section class="how">
 
-    <div class="container">
+    <div class="how-container">
 
-        <span class="eyebrow">
-            How ALMA Works
-        </span>
+        <div class="how-head">
 
-        <h2>
-            Understanding Instead of Guessing
-        </h2>
+            <h2>How ALMA Works</h2>
 
-        <p class="intro">
-            ALMA doesn't tell people who to love.
-            It helps them understand themselves,
-            recognize relationship patterns,
-            and make more thoughtful long-term decisions.
-        </p>
+            <p>
+                ALMA doesn't tell people who to love. It helps them
+                understand themselves, recognize relationship patterns,
+                and make more thoughtful long-term decisions.
+            </p>
+
+        </div>
 
         <div class="steps">
 
-            <div class="step">
-                <div class="icon">💬</div>
-                <h3>Start a Dialogue</h3>
-                <p>
-                    Begin with yourself, another person,
-                    or an existing relationship.
-                </p>
-            </div>
+            {
+                steps.map((step, i) => (
 
-            <div class="arrow">→</div>
+                    <div class="step">
 
-            <div class="step">
-                <div class="icon">🧠</div>
-                <h3>Reveal Patterns</h3>
-                <p>
-                    ALMA identifies emotional,
-                    behavioral and psychological patterns
-                    through structured conversation.
-                </p>
-            </div>
+                        <span class="step-num">{num(i)}</span>
 
-            <div class="arrow">→</div>
+                        <h3>{step.title}</h3>
 
-            <div class="step">
-                <div class="icon">🔍</div>
-                <h3>Transparent Insights</h3>
-                <p>
-                    Every conclusion is explained.
-                    No hidden scores.
-                    No black-box predictions.
-                </p>
-            </div>
+                        <p>{step.text}</p>
 
-            <div class="arrow">→</div>
+                    </div>
 
-            <div class="step">
-                <div class="icon">❤️</div>
-                <h3>Better Decisions</h3>
-                <p>
-                    Understand compatibility before
-                    making important relationship choices.
-                </p>
-            </div>
+                ))
+            }
 
         </div>
 
@@ -71,161 +65,173 @@
 
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340..600&family=Inter:wght@400;500;600;700&display=swap');
+
 .how{
 
-padding:140px 24px;
+    padding:110px 24px;
 
-background:white;
+    background:#f8fafc;
 
-}
-
-.container{
-
-max-width:1200px;
-
-margin:auto;
-
-text-align:center;
+    font-family:'Inter',system-ui,sans-serif;
 
 }
 
-.eyebrow{
+.how-container{
 
-display:inline-block;
+    max-width:1080px;
 
-padding:8px 18px;
-
-border-radius:999px;
-
-background:#eef4ff;
-
-color:#2563eb;
-
-font-weight:600;
-
-margin-bottom:22px;
+    margin:0 auto;
 
 }
 
-h2{
+.how-head{
 
-font-size:54px;
+    max-width:560px;
 
-letter-spacing:-2px;
+    margin:0 auto 72px;
 
-margin-bottom:26px;
-
-color:#111827;
+    text-align:center;
 
 }
 
-.intro{
+.how-head h2{
 
-max-width:760px;
+    font-family:'Fraunces',serif;
 
-margin:0 auto 90px;
+    font-optical-sizing:auto;
 
-font-size:22px;
+    font-weight:440;
 
-line-height:1.8;
+    font-size:38px;
 
-color:#6b7280;
+    letter-spacing:-.01em;
+
+    color:#111827;
+
+    margin:0 0 18px;
+
+}
+
+.how-head p{
+
+    font-size:17px;
+
+    line-height:1.75;
+
+    color:#5b6472;
+
+    margin:0;
 
 }
 
 .steps{
 
-display:flex;
+    display:grid;
 
-align-items:flex-start;
+    grid-template-columns:repeat(4, 1fr);
 
-justify-content:center;
-
-gap:28px;
-
-flex-wrap:wrap;
+    gap:0;
 
 }
 
 .step{
 
-flex:1;
+    position:relative;
 
-min-width:220px;
-
-max-width:250px;
+    padding:0 28px;
 
 }
 
-.icon{
+.step + .step{
 
-width:78px;
+    border-left:1px solid #e3e8ef;
 
-height:78px;
+}
 
-margin:0 auto 24px;
+.step-num{
 
-border-radius:50%;
+    display:block;
 
-background:#f3f4f6;
+    font-family:'Fraunces',serif;
 
-display:flex;
+    font-weight:420;
 
-align-items:center;
+    font-size:22px;
 
-justify-content:center;
+    color:#2563eb;
 
-font-size:34px;
+    margin-bottom:18px;
 
 }
 
 .step h3{
 
-font-size:24px;
+    font-family:'Fraunces',serif;
 
-margin-bottom:16px;
+    font-weight:480;
 
-color:#111827;
+    font-size:20px;
+
+    color:#111827;
+
+    margin:0 0 12px;
 
 }
 
 .step p{
 
-font-size:17px;
+    font-size:15px;
 
-line-height:1.8;
+    line-height:1.7;
 
-color:#6b7280;
+    color:#5b6472;
 
-}
-
-.arrow{
-
-font-size:34px;
-
-color:#d1d5db;
-
-padding-top:22px;
+    margin:0;
 
 }
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
-.steps{
+    .how{
 
-flex-direction:column;
+        padding:72px 20px;
 
-align-items:center;
+    }
 
-}
+    .how-head{
 
-.arrow{
+        margin-bottom:48px;
 
-transform:rotate(90deg);
+    }
 
-padding:0;
+    .how-head h2{
 
-}
+        font-size:30px;
+
+    }
+
+    .steps{
+
+        grid-template-columns:1fr;
+
+        gap:36px;
+
+    }
+
+    .step{
+
+        padding:0 0 0 24px;
+
+        border-left:2px solid #e3e8ef;
+
+    }
+
+    .step + .step{
+
+        border-left:2px solid #e3e8ef;
+
+    }
 
 }
 
